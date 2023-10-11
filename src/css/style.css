@@ -1,0 +1,208 @@
+body {
+  background: white;
+  color: #171717;
+  font-family: var(--NeueHaas-Roman);
+}
+html {
+  overflow-x: hidden;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+}
+* {
+  transition: all;
+}
+@font-face {
+  font-family: italic-black;
+  src: url(../font/HelloFreshtea.otf);
+}
+@font-face {
+  font-family: NeueHaas-black;
+  src: url(../font/NeueHaasDisplayBlack.otf);
+}
+@font-face {
+  font-family: NeueHaas-Bold;
+  src: url(../font/NeueHaasDisplayBold.otf);
+}
+@font-face {
+  font-family: NeueHaas-Light;
+  src: url(../font/NeueHaasDisplayLight.otf);
+}
+@font-face {
+  font-family: NeueHaas-Mediu;
+  src: url(../font/NeueHaasDisplayMediu.otf);
+}
+@font-face {
+  font-family: NeueHaas-Roman;
+  src: url(../font/NeueHaasDisplayRoman.otf);
+}
+@font-face {
+  font-family: NeueHaas-Thin;
+  src: url(../font/NeueHaasDisplayThin.otf);
+}
+
+:root {
+  --italic-roman: italic-black;
+  --NeueHaas-black: NeueHaas-black;
+  --NeueHaas-Bold: NeueHaas-Bold;
+  --NeueHaas-Light: NeueHaas-Light;
+  --NeueHaas-Mediu: NeueHaas-Mediu;
+  --NeueHaas-Roman: NeueHaas-Roman;
+  --NeueHaas-Thin: NeueHaas-Thin;
+}
+
+
+/* ===== Scrollbar CSS ===== */
+/* Firefox */
+html {
+    scrollbar-width: auto;
+    scrollbar-color: #bf9275 #e5e5e5;
+  }
+
+/* Chrome, Edge, and Safari */
+html::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  html::-webkit-scrollbar-track {
+    background: #e5e5e5;
+  }
+  html.dark::-webkit-scrollbar-track {
+    background: #000;
+  }
+  
+  html::-webkit-scrollbar-thumb {
+    background-color: #bf9275;
+    border-radius: 10px;
+    border: 10px solid #bf9275;
+  }
+
+.gradiant-text {
+  color: #bf9275;
+  text-transform: uppercase;
+}
+.gradiant-animated {
+  background: linear-gradient(
+    271deg,
+    rgba(230, 182, 151, 1) 0%,
+    rgba(173, 120, 86, 1) 5%,
+    rgba(122, 74, 46, 1) 10%,
+    rgba(181, 127, 92, 1) 50%,
+    rgba(230, 182, 151, 1) 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine 3s linear infinite;
+}
+.custom-text {
+  font-family: var(--italic-roman);
+  text-transform: capitalize;
+  line-height: 1;
+  color: #fff;
+}
+
+/* .main-text {
+  transition: 4s all ease-in-out;
+  animation: line 3s linear;
+}
+.main-text-2 {
+  transition: 4s all ease-in-out;
+  animation: line 5s linear;
+}
+.main-text-3 {
+  transition: 4s all ease-in-out;
+  animation: line 7s linear;
+} */
+
+.main-text:hover .undo-text {
+  transform: translateX(23px);
+  transition: 0.3s;
+  transition-delay: 0s;
+}
+
+@keyframes line {
+  0% {
+    transform: scaleX(150);
+    border-width: 100%;
+  }
+}
+
+.main-text:hover .info-text {
+  opacity: 1;
+}
+.image-overlay {
+  position: relative;
+  z-index: 0;
+  cursor: pointer;
+}
+.image-overlay::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #bf9275;
+  mix-blend-mode: multiply;
+  opacity: 0.55;
+  transition: 0.3s;
+  z-index: 10;
+}
+.image-overlay:hover::before {
+  background-color: transparent;
+}
+.image-overlay img {
+  transition: all;
+  transition-duration: 300ms;
+}
+.image-overlay:hover img {
+  transform: scale(1.1);
+}
+.image-overlay:hover .info-text {
+  opacity: 1;
+}
+.projects-text:hover {
+  text-decoration: none;
+}
+.projects-text:hover .main-portain {
+  opacity: 1;
+}
+.contact-text:hover .main-contact-text {
+  opacity: 1;
+}
+
+.img-parallax-ptext {
+  mix-blend-mode: overlay;
+} 
+@keyframes shine {
+  0% {
+    background-position: 200% center;
+  }
+}
+
+
+.our-purpose-list {
+  position: relative; 
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.our-purpose-list::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  opacity: 1;
+  transition: .2s;
+}
+
+.our-purpose-list.active {
+  padding-left: 12px;
+}
+.our-purpose-list.active::after{
+  background-color: #ffaa00;
+}
