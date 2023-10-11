@@ -1,6 +1,6 @@
 import Image from "next/image";
 import SimpleAnimation from "../component/SimpleAnimation";
-import Header from "../component/header";
+import Header from "../component/Header";
 import ScrollSmoother from "../component/ScrollSmoother";
 
 
