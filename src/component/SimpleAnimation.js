@@ -53,6 +53,11 @@ const SimpleAnimation = () => {
   ]
 
   useEffect(() => {
+    
+
+    const vw = (coef) => window.innerWidth * (coef / 100);
+    const vh = (coef) => window.innerHeight * (coef / 100);
+
     // section one shap logo
     gsap.to(".hero-img-shap", {
       opacity: 1,
@@ -75,43 +80,32 @@ const SimpleAnimation = () => {
       },
     });
 
-    // section-two-left image
-    gsap.to(".section-two-image-one", {
-      y: -300,
-      ease: "power1.out",
+
+    // section-two-right image
+    const heroScroller = gsap.timeline({
+      paused: true,
       scrollTrigger: {
         trigger: ".section-two",
-        start: "top 90%",
+        start: "top bottom",
         end: "bottom top",
         scrub: true,
       },
     });
 
-    // section-two-right image
-    gsap.to(".section-two-image-two", {
-      y: -150,
-      duration: 2,
-      opacity: 0.5,
-      ease: "power2.inOut",
-      scrollTrigger: {
-        trigger: ".section-two",
-        start: "top 90%",
-        end: "bottom top",
-        scrub: true,
-      },
-    });
-
-    // section-two-right image
-    gsap.to(".hero-text", {
-      y: -100,
-      ease: "power1.out",
-      scrollTrigger: {
-        trigger: ".hero-text",
-        start: "top 80%",
-        end: "bottom 20%",
-        scrub: true,
-      },
-    });
+    heroScroller
+    .to(".section-two-image-two",
+      {
+        yPercent: -50,
+        ease: "none",
+      }, 0)
+      .to(".section-two-image-one", {
+      yPercent: -50,
+      ease: "none",
+    }, 0)
+      .to(".hero-text", {
+      yPercent: -0,
+      ease: "none",
+    }, 0);
 
     // section-three left full image
     gsap.to(".section-three-image", {
@@ -156,16 +150,20 @@ const SimpleAnimation = () => {
       },
     });
 
-    // P text image section-three
-    gsap.to(".img-parallax-ptext", {
-      y: "120%",
-      ease: "power1.out",
+    const purposeParallax = gsap.timeline({
+      paused: true,
       scrollTrigger: {
-        trigger: ".section-three",
-        start: "top 90%",
-        end: "bottom 20%",
+        trigger: ".section-three-image",
+        start: "top center",
+        end: "bottom center",
         scrub: true,
       },
+    });
+
+    // P text image section-three
+    purposeParallax.to(".img-parallax-ptext", {
+      yPercent: 300,
+      ease: "none",
     });
 
     // background p logo image section-three
@@ -193,16 +191,20 @@ const SimpleAnimation = () => {
       },
     });
 
-    // section four bg Parallax image
-    gsap.to(".section-four-bgimage", {
-      y: 0,
-      ease: "power1.out",
+    const devotionQuality = gsap.timeline({
+      paused: true,
       scrollTrigger: {
-        trigger: ".section-four-title-animation-div",
-        start: "top 100%",
-        end: "bottom 20%",
+        trigger: ".bgimage-main",
+        start: "top center",
+        end: "bottom center",
         scrub: true,
       },
+    });
+
+    // section four bg Parallax image
+    devotionQuality.to(".section-four-bgimage", {
+      yPercent: 200,
+      ease: "none",
     });
 
     // video-section-animation
@@ -373,9 +375,9 @@ const SimpleAnimation = () => {
           <Image
             src={img2}
             alt=""
-            className="absolute 2xl:left-[122px] left-7 md:-bottom-[250px] bottom-0 z-[100] transition-all duration-1000 section-two-image-one xl:max-w-[350px] sm:max-w-[186px] max-w-[125px]"
+            className="absolute 2xl:left-[122px] left-7 md:-bottom-[250px] bottom-0 z-[100] section-two-image-one xl:max-w-[350px] sm:max-w-[186px] max-w-[125px]"
           />
-          <div className="hero-text transition-all duration-1000 w-full 2xl:max-w-[768px] lg:max-w-[658px] md:max-w-[309px]">
+          <div className="hero-text w-full 2xl:max-w-[768px] lg:max-w-[658px] md:max-w-[309px]">
             <h2 className="text-left max-w-[714px] w-full text-[99px] xl:leading-[1.1] md:leading-[65px] leading-[45px] tracking-tighter">
               <span className="gradiant-text gradiant-animated 2xl:text-[99px] lg:text-[74px] md:text-6xl text-[40px] tracking-[1px]">
                 Form, Fortis & Function Are
@@ -392,7 +394,7 @@ const SimpleAnimation = () => {
           <Image
             src={img}
             alt=""
-            className="absolute 2xl:right-[78px] md:right-7 md:top-[100px] bottom-0 right-6 transition-all duration-700 section-two-image-two translate-y-0 xl:max-w-[443px] lg:max-w-[236px] md:max-w-[180px] sm:max-w-[320px] max-w-[187px]"
+            className="absolute 2xl:right-[78px] md:right-7 md:top-[100px] bottom-0 right-6 section-two-image-two translate-y-0 xl:max-w-[443px] lg:max-w-[236px] md:max-w-[180px] sm:max-w-[320px] max-w-[187px]"
           />
         </section>
       </div>
@@ -403,14 +405,13 @@ const SimpleAnimation = () => {
         <div className="flex lg:flex-row flex-col">
           <div className="w-full max-w-[1231px]">
             <div
-              className="section-three-image transition-all duration-1000 relative z-0 overflow-hidden"
-              style={{ transform: "translate(0px, -80px)" }}
+              className="section-three-image relative z-0 overflow-hidden"
             >
               <Image src={purpose} alt="" className="w-full overflow-hidden lg:h-[618px] xl:h-auto h-[499px]" />
               <Image
                 src={ptext}
                 alt=""
-                className="absolute lg:left-[62%] sm:left-[38%] left-[25%] -top-[50px] z-50 transition-all duration-1000 img-parallax-ptext xl:max-w-[500px] md:max-w-[300px] max-w-[250px]"
+                className="absolute lg:left-[62%] sm:left-[38%] left-[25%] -top-[50%] z-50 img-parallax-ptext xl:max-w-[500px] md:max-w-[300px] max-w-[250px] -translate-y-[50%]"
               />
             </div>
             {/* <div className="flex flex-col gap-3 mx-auto w-full max-w-[950px] -mt-52 text-white relative z-20">
@@ -463,8 +464,7 @@ const SimpleAnimation = () => {
         <div className="relative bgimage-main">
           <div className="sm:sticky top-0 z-0 flex justify-center items-start">
             <div
-              className="section-four-bgimage transition-all duration-1000 h-[400px] xl:max-w-[460px] max-w-[260px]"
-              style={{ transform: "translate(0px, -800px)" }}
+              className="section-four-bgimage h-[400px] xl:max-w-[460px] max-w-[260px] -translate-y-[100%]"
             >
               <Image src={PortfolioPMin} alt="" className="mt-[140px]" />
             </div>

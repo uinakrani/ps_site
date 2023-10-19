@@ -7,17 +7,17 @@ import  ScrollTrigger  from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 const ScrollSmoother = () => {
-  useEffect(() => {
-    // Create the smooth scroller
-    ScrollTrigger.create({
-      content: "#scrollsmoother-container", 
-      smooth: 3,
-      normalizeScroll: true,
-      ignoreMobileResize: true,
-      // Your ScrollTrigger configurations here
-    });
+  // useEffect(() => {
+  //   // Create the smooth scroller
+  //   ScrollTrigger.create({
+  //     content: "#scrollsmoother-container", 
+  //     smooth: 3,
+  //     normalizeScroll: true,
+  //     ignoreMobileResize: true,
+  //     // Your ScrollTrigger configurations here
+  //   });
 
-  }, []);
+  // }, []);
 
   return (
     <div>
