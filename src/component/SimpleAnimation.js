@@ -3,8 +3,9 @@ import { useEffect, useState, useRef } from "react";
 import { gsap } from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import Image from "next/image";
-import HeroImg from "../img/hero-section-shape-img.png";
-import HeroImgShapShaow from "../img/hero-section-shap-shaow-image.png";
+import HeroImg from "../img/hero-section-shape-img2.png";
+import HeroImgShapShaow from "../img/hero-section-shap-shaow-image2.png";
+import HeroImgShapShaow1 from "../img/hero-section-shap-shaow-image4.png";
 import img from "../img/fortics-1.png";
 import img2 from "../img/fortics-2.jpg";
 import purpose from "../img/Purpose.jpg";
@@ -12,12 +13,12 @@ import portain from "../img/gallery-menage-1.jpg";
 import portain2 from "../img/gallery-image-2.jpg";
 import portain3 from "../img/gallery-image-3.jpg";
 import portain4 from "../img/gallery-image-4.jpg";
-import ptext from "../img/p-img.png";
-import PortfolioPMin from "../img/Portfolio-P-min.png";
+import ptext from "../img/p-img1.png";
+import PortfolioPMin from "../img/Portfolio-P-min2.png";
 import facebook from "../img/facebook.svg";
 import instagram from "../img/instagram.svg";
 import pinterest from "../img/pinterest.svg";
-import videoOverlay from "../img/p-cut-overlay.png";
+import videoOverlay from "../img/p-cut-overlay1.png";
 
 gsap.registerPlugin(ScrollTrigger,);
 
@@ -61,12 +62,17 @@ const SimpleAnimation = () => {
     // section one shap logo
     gsap.to(".hero-img-shap", {
       opacity: 1,
-      left: '46%',
+      left: '30%',
     });
 
     gsap.to(".hero-img-shap-shaow", {
       opacity: 1,
-      left: '54%',
+      left: '48%',
+    });
+
+    gsap.to(".hero-img-shap-w", {
+      opacity: 1,
+      left: '70%',
     });
 
     // section one and two background color
@@ -356,6 +362,16 @@ const SimpleAnimation = () => {
         {/* section-one */}
         <section className="sm:h-screen sm:py-0 py-80 w-full relative section-one">
           <div>
+            {/* <Image
+              src={HeroImgShapShaow1}
+              alt="downArrow"
+              className="absolute opacity-0 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 hero-img-shap-w xl:max-w-[575px] lg:max-w-[300px] md:max-w-[213px] sm:max-w-[320px] max-w-[187px] h-[590px]"
+            /> */}
+            <Image
+              src={HeroImgShapShaow1}
+              alt="downArrow"
+              className="absolute opacity-0 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 hero-img-shap-w xl:max-w-[715px] lg:max-w-[300px] md:max-w-[213px] sm:max-w-[320px] max-w-[187px]"
+            />
             <Image
               src={HeroImgShapShaow}
               alt="downArrow"

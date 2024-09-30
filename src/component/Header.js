@@ -4,7 +4,7 @@ import { gsap } from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import Link from "next/link";
 import Image from "next/image";
-import logo from '../img/logo.png';
+import logo from '../img/logo1.svg';
 import facebook from "../img/facebook.svg";
 import instagram from "../img/instagram.svg";
 import pinterest from "../img/pinterest.svg";
@@ -71,11 +71,12 @@ const Header = () => {
     return (
         <div className={`fixed z-[999] w-full ${menu && 'bg-[#110a06]'}`}>
             <div className='section-header-top flex justify-between w-full md:px-8 py-8 px-4' style={{ filter: "invert(0)" }}>
-                <Image
+                {/* <Image
                     src={logo}
                     alt="logo"
                     className={`max-w-[99px] w-full h-[20px] ${menu ? 'invert-[40%] brightness-[(140%)' : ''}`}
-                />
+                /> */}
+                <p className={`max-w-[99px] text-xl font-bold w-full h-[20px] ${menu ? 'invert-[40%] brightness-[(140%)' : ''}`}>RTW</p>
                 <div className='flex gap-16 items-center'>
                     <div className={`flex gap-4 items-center ${menu ? 'text-white' : 'text-black'}`}>
                         <a className='font-bold underline underline-offset-4 text-sm' href="#0">MY</a>
